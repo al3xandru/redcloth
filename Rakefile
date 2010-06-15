@@ -1,6 +1,6 @@
-require 'lib/redcloth/version'
+require File.expand_path(File.dirname(__FILE__)) + "/lib/redcloth/version"
 require 'rubygems'
-gem 'echoe', '>= 4.1'
+gem 'echoe', '>= 4.3.1'
 require 'echoe'
 Dir["#{File.dirname(__FILE__)}/lib/tasks/*.rake"].sort.each { |ext| load(ext) }
 
@@ -217,12 +217,12 @@ end
 
 #### Custom testing tasks
 
-require 'rubygems' 
-require 'spec/rake/spectask'
+require 'rspec/core'
+require 'rspec/core/rake_task'
 Rake::Task[:default].prerequisites.clear
-Spec::Rake::SpecTask.new do |t|
-  t.spec_opts = ["--options #{File.dirname(__FILE__) + '/spec/spec.opts'}"] 
-  t.spec_files = FileList['spec/**/*_spec.rb'] 
+Rspec::Core::RakeTask.new(:spec) do |spec|
+  spec.spec_opts = ["--options #{File.dirname(__FILE__) + '/spec/spec.opts'}"] 
+  spec.spec_files = FileList['spec/**/*_spec.rb'] 
 end 
 
 task :default => :spec
