@@ -1,0 +1,155 @@
+---
+name: lists with + prefix
+in: |-
+  + first
+  + second
+  + third
+html: |-
+  <ul>
+  	<li>first</li>
+  	<li>second</li>
+  	<li>third</li>
+  </ul>
+---
+name: imbricated '+' prefixed lists
+in: |-
+  + first
+  ++ imb 1
+  ++ imb 2
+  + second
+html: |-
+  <ul>
+  	<li>first
+  	<ul>
+  		<li>imb 1</li>
+  		<li>imb 2</li>
+  	</ul></li>
+  	<li>second</li>
+  </ul>
+---
+name: block code should not transform '+' lists
+in: |-
+  bc. # Output "I love Ruby"
+  + this should not be list
+  + neither do this one
+html: |-
+  <pre><code># Output "I love Ruby"
+  + this should not be list
+  + neither do this one</code></pre>
+---
+name: strong (vs list)
+in: '*this is strong*'
+html: <p><strong>this is strong</strong></p>
+---
+name: list (vs strong)
+in: '* notice the space after *'
+html: |-
+  <ul>
+  	<li>notice the space after *</li>
+  </ul>
+---
+name: inserted (vs list)
+in: '+this is inserted+'
+html: <p><ins>this is inserted</ins></p>
+---
+name: list (vs inserted)
+in: '+ notice the space after +'
+html: |-
+  <ul>
+  	<li>notice the space after +</li>
+  </ul>
+---
+name: numbered (real) list
+in: |-
+  1. item 1
+  2. item 2
+  3. item 3
+html: |-
+  <ol>
+  	<li>item 1</li>
+  	<li>item 2</li>
+  	<li>item 3</li>
+  </ol>
+---
+name: numbered (real) imbricated list
+in: |-
+  1. item 1
+   1.1. item 1.1
+   1.2. item 1.2
+   2.3. item 1.3
+  2. item 2
+  3. item 3
+html: |-
+  <ol>
+  	<li>item 1
+  	<ol>
+  		<li>item 1.1</li>
+  		<li>item 1.2</li>
+  		<li>item 1.3</li>
+  	</ol></li>
+  	<li>item 2</li>
+  	<li>item 3</li>
+  </ol>
+---
+name: imbricated ul-ol-ul
+in: |-
+  + first
+   1.1. item 1.1
+   2.2. item 1.2
+  + second
+html: |-
+  <ul>
+  	<li>first
+  	<ol>
+  		<li>item 1.1</li>
+  		<li>item 1.2</li>
+  	</ol></li>
+  	<li>second</li>
+  </ul>
+---
+name: imbricated ul-ol#-ul
+in: |-
+  + first
+   ## item 1.1
+   ## item 1.2
+  + second
+html: |-
+  <ul>
+  	<li>first
+  	<ol>
+  		<li>item 1.1</li>
+  		<li>item 1.2</li>
+  	</ol></li>
+  	<li>second</li>
+  </ul>
+name: imbricated ol-ul-ol
+in: |-
+  1. item 1
+   ++ first
+   ++ second
+  2. item 2
+html: |-
+  <ol>
+  	<li>item 1
+  	<ul>
+  		<li>first</li>
+  		<li>second</li>
+  	</ul></li>
+  	<li>item 2</li>
+  </ol>
+---
+name: imbricated ol#-ul-ol
+in: |-
+  # item 1
+   ++ first
+   ++ second
+  # item 2
+html: |-
+  <ol>
+  	<li>item 1
+  	<ul>
+  		<li>first</li>
+  		<li>second</li>
+  	</ul></li>
+  	<li>item 2</li>
+  </ol>
