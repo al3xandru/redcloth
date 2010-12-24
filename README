@@ -184,4 +184,19 @@ Styles are applied with curly braces.
     table{border:1px solid black}.
     {background:#ddd;color:red}. |a|red|row|
 
+== Extensions
+
+Added support for additional attributes in HTML elements by extending the [lang].
+
+Example:
+
+ p[data:some]. normal paragraph
+
+ "[rel:external rel:noindex]link text":http://yahoo.com
+
+Will become:
+
+ <p data="some">normal paragraph</p>
+
+ <p><a href="http://yahoo.com" rel="external noindex">link text</a></p>
 
