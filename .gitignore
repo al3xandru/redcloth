@@ -15,3 +15,5 @@ tmp/*
 pkg/*
 .DS_Store
 *.log
+.idea
+lib/test_redcloth.rb
