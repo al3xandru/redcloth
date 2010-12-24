@@ -153,3 +153,39 @@ html: |-
   	</ul></li>
   	<li>item 2</li>
   </ol>
+---
+name: lists with - prefix
+in: |-
+  - first
+  - second
+  - third
+html: |-
+  <ul>
+  	<li>first</li>
+  	<li>second</li>
+  	<li>third</li>
+  </ul>
+---
+name: imbricated '-' prefixed lists
+in: |-
+  - first
+  -- imb 1
+  -- imb 2
+  - second
+html: |-
+  <ul>
+  	<li>first
+  	<ul>
+  		<li>imb 1</li>
+  		<li>imb 2</li>
+  	</ul></li>
+  	<li>second</li>
+  </ul>
+---
+name: should not be a paragraph
+in: ' - this should be a normal paragraph'
+html: |-
+  <ul>
+  	<li>this should be a normal paragraph</li>
+  </ul>
+

@@ -203,7 +203,7 @@ Will become:
 
 == Extensions
 
-This version add more options for defining ordered and unordered lists.
+This version add more options for defining ordered and unordered lists. 
 
 For unordered lists you can define them using both * and +. For ordered lists
 besides the default # defined lists, now you can use number separated items:
@@ -225,3 +225,19 @@ Will generate:
     </ol></li>
     <li>item 2</li>
 </ol>
+
+
+== Extensions
+
+This version supports defining unordered lists using -. But this is **a breaking change**
+as it required changing definition lists to use ':' as a prefix (instead of '-')
+
+So, you can now define an unordered list as:
+
+- an item
+- another item
+
+For definition lists:
+
+: term := definition of term
+: another term := definition of another term
