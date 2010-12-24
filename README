@@ -187,25 +187,15 @@ Styles are applied with curly braces.
 
 == Extensions
 
-This version add more options for defining ordered and unordered lists.
+This version supports defining unordered lists using -. But this is **a breaking change**
+as it required changing definition lists to use ':' as a prefix (instead of '-')
 
-For unordered lists you can define them using both * and +. For ordered lists
-besides the default # defined lists, now you can use number separated items:
+So, you can now define an unordered list as:
 
-Example:
+- an item
+- another item
 
-1. item 1
-1.1. item 1.1
-2.3. item 1.2 (numbers do not matter)
-2. item 2
+For definition lists:
 
-Will generate:
-
-<ol>
-    <li>item 1
-    <ol>
-        <li>item 1.1</li>
-        <li>item 1.2</li>
-    </ol></li>
-    <li>item 2</li>
-</ol>
+: term := definition of term
+: another term := definition of another term

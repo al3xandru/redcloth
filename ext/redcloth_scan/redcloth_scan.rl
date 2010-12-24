@@ -25,13 +25,13 @@
   block_end = ( double_return | EOF );
   ftype = ( "fn" >A %{ STORE("type"); } digit+ >A %{ STORE("id"); } ) ;
   footnote_start = ( ftype A C :> dotspace ) %SET_ATTR ;
-  ul = ("*"|"+") %{NEST(); SET_LIST_TYPE("ul");};
+  ul = ("*"|"+"|"-") %{NEST(); SET_LIST_TYPE("ul");};
   ol = ("#"| digit+ . ".") %{NEST(); SET_LIST_TYPE("ol");};
   ul_start  = ( ul | ol )* ul A_HLGN_noactions* C_noactions :> " "+ ;
   ol_start  = ( ul | ol )* ol N A_HLGN_noactions* C_noactions :> " "+ ;
   list_start  = " "* A_HLGN* C ( ul_start | ol_start ) >B >{RESET_NEST();} @{ fexec(bck); } ;
   
-  dt_start = "-" . " "+ ;
+  dt_start = ":" . " "+ ;
   dd_start = ":=" ;
   long_dd  = dd_start " "* LF %{ ADD_BLOCK(); ASET("type", "dd"); } any+ >A %{ TRANSFORM("text"); } :>> "=:" ;
   dl_start = (dt_start mtext (LF dt_start mtext)* " "* dd_start)  ;
