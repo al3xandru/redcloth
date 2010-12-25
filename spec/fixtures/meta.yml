@@ -1,0 +1,30 @@
+---
+name: one line meta
+in: meta. this line should be completely ignored
+html: ""
+---
+name: multi line meta
+in: |-
+  meta. title: a possible post title
+  tags: some tags
+
+  this line should already be a paragraph
+html: <p>this line should already be a paragraph</p>
+---
+name: multi line extended meta
+in: |-
+  meta.. title: a possible post title
+  tags: some tags
+
+  this line should already be a paragraph
+html: ""
+---
+name: multi line extended meta with double return and paragraph
+in: |-
+  meta.. title: a possible post title
+  tags: some tags
+
+  this line still part of the meta
+
+  p. this should be a paragraph
+html: <p>this should be a paragraph</p>

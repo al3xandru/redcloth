@@ -30,6 +30,7 @@
   ul_start  = ( ul | ol )* ul A_HLGN_noactions* C_noactions :> " "+ ;
   ol_start  = ( ul | ol )* ol N A_HLGN_noactions* C_noactions :> " "+ ;
   list_start  = " "* A_HLGN* C ( ul_start | ol_start ) >B >{RESET_NEST();} @{ fexec(bck); } ;
+  meta_start = "meta." . ("." %extend | "") . " "+;
   
   dt_start = "-" . " "+ ;
   dd_start = ":=" ;
@@ -163,11 +164,21 @@
     default => cat;
   *|;
 
+  meta_block := |*
+    EOF {  MARK(); fgoto main; };
+    double_return when extended { MARK(); };
+    double_return when not_extended { MARK(); fgoto main; };
+    double_return next_block_start when extended { MARK(); fgoto main; };
+    double_return next_block_start when not_extended { MARK(); fgoto main; };
+    default => A;
+  *|;
+
   main := |*
     noparagraph_line_start  { ASET("type", "ignored_line"); fgoto noparagraph_line; };
     notextile_tag   { INLINE(html, "notextile"); };
     notextile_block_start { ASET("type", "notextile"); fgoto notextile_block; };
     script_tag_start { CAT(block); fgoto script_tag; };
+    meta_start      { fgoto meta_block; };
     pre_tag_start       { ASET("type", "notextile"); CAT(block); fgoto pre_tag; };
     pre_block_start { fgoto pre_block; };
     standalone_html { ASET("type", "html"); CAT(block); ADD_BLOCK(); };
