@@ -184,4 +184,7 @@ Styles are applied with curly braces.
     table{border:1px solid black}.
     {background:#ddd;color:red}. |a|red|row|
 
+== Extensions
 
+Support for meta by using meta.[.]. Everything in the meta section
+is not considered part of the output
