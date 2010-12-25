@@ -241,3 +241,9 @@ For definition lists:
 
 : term := definition of term
 : another term := definition of another term
+
+== Extensions
+
+Support for meta by using meta.[.]. Everything in the meta section
+is not considered part of the output
+
