@@ -38,7 +38,7 @@ module RedCloth::Formatters
         opts[:style] = "#{a}:#{opts[a]}em;#{opts[:style]}" if opts[a]
       end
       o_lang_attr = opts.delete(:lang)
-      if o_lang_attr then
+      if o_lang_attr
         # check if it's not attributes
         other_attributes = {}
         lang_attr = NIL
@@ -55,7 +55,7 @@ module RedCloth::Formatters
           end
         end
         other_attributes.each do |k, v|
-          atts << " #{k}=\"#{ html_esc(v.join(' '), :hmtl_escapte_attributes) }\""
+          atts << " #{k}=\"#{ html_esc(v.join(' '), :html_escape_attributes) }\""
         end
       end
       [:style, :class, :lang, :id, :colspan, :rowspan, :title, :start, :align].each do |a|
