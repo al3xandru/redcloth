@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{RedCloth}
-  s.version = "4.2.3.1"
+  s.version = "4.2.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Garber"]
-  s.date = %q{2010-12-25}
+  s.date = %q{2010-12-26}
   s.default_executable = %q{redcloth}
-  s.description = %q{RedCloth-4.2.3.1 - Textile parser for Ruby.
+  s.description = %q{RedCloth-4.2.3.2 - Textile parser for Ruby.
 http://redcloth.org/}
   s.email = %q{redcloth-upwards@rubyforge.org}
   s.executables = ["redcloth"]
@@ -21,7 +21,7 @@ http://redcloth.org/}
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.4")
   s.rubyforge_project = %q{redcloth}
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{RedCloth-4.2.3.1 - Textile parser for Ruby. http://redcloth.org/}
+  s.summary = %q{RedCloth-4.2.3.2 - Textile parser for Ruby. http://redcloth.org/}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
