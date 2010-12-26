@@ -1,1 +1,1 @@
-rvm --create use default@redcloth
+rvm --create use default@redcloth_master

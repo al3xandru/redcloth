@@ -37,6 +37,27 @@ module RedCloth::Formatters
       [:"padding-right", :"padding-left"].each do |a|
         opts[:style] = "#{a}:#{opts[a]}em;#{opts[:style]}" if opts[a]
       end
+      o_lang_attr = opts.delete(:lang)
+      if o_lang_attr
+        # check if it's not attributes
+        other_attributes = {}
+        lang_attr = NIL
+        o_lang_attr.split.each do |i|
+          if i.count(':') == 1
+            attr_name, attr_value = i.split(':')
+            if other_attributes[attr_name]:
+              other_attributes[attr_name] << attr_value
+            else
+              other_attributes[attr_name] = [attr_value]
+            end
+          else
+            opts[:lang] = i
+          end
+        end
+        other_attributes.each do |k, v|
+          atts << " #{k}=\"#{ html_esc(v.join(' '), :html_escape_attributes) }\""
+        end
+      end
       [:style, :class, :lang, :id, :colspan, :rowspan, :title, :start, :align].each do |a|
         atts << " #{a}=\"#{ html_esc(opts[a].to_s, :html_escape_attributes) }\"" if opts[a]
       end

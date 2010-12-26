@@ -23,3 +23,5 @@ pkg
 rdoc
 release
 tmp
+.idea
+lib/test_redcloth.rb

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    RedCloth (4.2.4.pre3)
+    RedCloth (4.2.4.1)
 
 GEM
   remote: http://rubygems.org/

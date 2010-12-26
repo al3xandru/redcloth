@@ -1,0 +1,16 @@
+---
+name: language continues to work
+in: 'p[en data:some]. some paragraph'
+html: <p data="some" lang="en">some paragraph</p>
+---
+name: language attr works even if not first
+in: 'p[data:some meta:other en]. some paragraph'
+html: <p data="some" meta="other" lang="en">some paragraph</p>
+---
+name: repeated attribute gets concatenated
+in: 'p[data:some data:more]. some paragraph'
+html: <p data="some more">some paragraph</p>
+---
+name: works with links
+in: '"[rel:external rel:noindex name:extlink]a link":http://yahoo.com'
+html: <p><a href="http://yahoo.com" name="extlink" rel="external noindex">a link</a></p>
