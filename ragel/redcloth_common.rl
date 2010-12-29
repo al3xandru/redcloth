@@ -40,7 +40,8 @@
   S_CSPN = ( "\\" [0-9]+ >ATTR %{ STORE_ATTR("colspan"); } ) ;
   S_RSPN = ( "/" [0-9]+ >ATTR %{ STORE_ATTR("rowspan"); } ) ;
   D_HEADER = "_" %{ ATTR_SET("th", "true"); } ;
-  A = ( ( A_HLGN | A_VLGN )* ) ;
+  A = ( A_HLGN* );
+  A_V = ( ( A_HLGN | A_VLGN )* ) ;
   A2 = ( A_LIMIT? ) ;
   S = ( S_CSPN | S_RSPN )* ;
   C = ( C_CLASS_ID | C_STYL | C_LNGE )* ;
